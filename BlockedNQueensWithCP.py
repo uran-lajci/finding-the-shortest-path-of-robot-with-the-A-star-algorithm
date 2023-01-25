@@ -1,4 +1,4 @@
-"""OR-Tools solution to the N-queens problem."""
+"""OR-Tools solution to the blocked N-queens problem."""
 import sys
 from ortools.constraint_solver import pywrapcp
 
@@ -56,7 +56,7 @@ def main(board_size, blocked_positions):
 if __name__ == '__main__':
     # By default, solve the 8x8 problem.
     size = 4
-    blocked_positions = [(0,0),(0,1)]
+    blocked_positions = [(0,0),(1,2)]
     if len(sys.argv) > 1:
         size = int(sys.argv[1])
     main(size, blocked_positions)
