@@ -21,6 +21,7 @@ def main(board_size, blocked_positions):
     solver.Add(solver.AllDifferent([queens[i] + i for i in range(board_size)]))
     solver.Add(solver.AllDifferent([queens[i] - i for i in range(board_size)]))
 
+    # No queen can be on the blocked position.
     for pos in blocked_positions:
         row, col = pos
         solver.Add(queens[col] != row)
@@ -45,16 +46,10 @@ def main(board_size, blocked_positions):
         num_solutions += 1
     solver.EndSearch()
 
-    # Statistics.
-    print('\nStatistics')
-    print(f'  failures: {solver.Failures()}')
-    print(f'  branches: {solver.Branches()}')
-    print(f'  wall time: {solver.WallTime()} ms')
     print(f'  Solutions found: {num_solutions}')
 
 
 if __name__ == '__main__':
-    # By default, solve the 8x8 problem.
     size = 4
     blocked_positions = [(0,0),(1,2)]
     if len(sys.argv) > 1:

@@ -49,16 +49,13 @@ def get_neighbors(landscape, node):
     return neighbors
 
 # Example usage
-landscape = [[0, 0, 0, 0, 0],
-             [0, "obstacle", 0, "obstacle", 0],
-             [0, 0, "obstacle", 0, 0],
-             [0, 0, 0, 0, "obstacle"],
-             [0, "obstacle", 0, 0, 0]]
+o = "obstacle"
+landscape = [[0, 0, 0],
+             [0, o, o],
+             [0, 0, 0]]
 start = (0, 0)
-goal = (4, 4)
+goal = (2, 2)
 print(a_star(landscape, start, goal))
-# Output: [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3
-
 
 # if __name__ == '__main__':
 #     # Read input from user
